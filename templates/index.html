@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Do Image Retrieve!</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet">
+
+    <style>
+        body {
+            /*图片资源需要放在static静态文件夹才能被html/css访问*/
+            background-image: url("../static/blue.jpg");
+            /*background-color: gainsboro;*/
+            background-size: cover;
+            font-family: 'Microsoft YaHei', sans-serif;
+            font-weight: 100;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .main {
+            display: table;
+            width: 350px;
+            height: 84vh;
+            margin: auto;
+        }
+
+        .content {
+            display: table-cell;
+            vertical-align: middle;
+            width: 100%;
+            height: 100%;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 100;
+            margin: 0 !important;
+        }
+
+        h1 {
+            font-size: 1.5em;
+        }
+
+        .form-wrapper {
+            margin: 20px auto;
+        }
+
+        .form-wrapper input {
+            padding: 10px;
+            -webkit-appearance: none;
+        }
+
+        .form-wrapper input[type=file] {
+            width: 100%;
+            border: 1px solid powderblue;
+            border-radius: 5px;
+        }
+
+        .form-wrapper input[type=submit] {
+            background-color: blue;
+            color: white;
+            font-weight: 600;
+            font-size: 0.7em;
+            font-family: 'Microsoft YaHei', sans-serif;
+            border: 0;
+            border-radius: 2px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="main" style="padding-left: 25px">
+    <div class="content">
+        <h1>QIUKU Image Retrieve</h1>
+        <div class="form-wrapper">
+            <form enctype="multipart/form-data" method="post">
+                <input type="file" name="image" accept="image/*"/>
+                <input type="submit" name="submit" value="Image Search"/>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
