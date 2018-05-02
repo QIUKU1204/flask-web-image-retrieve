@@ -27,7 +27,7 @@ Then you run `pip install -r requirements.txt` to install all dependencies
 - python creat_index.py -database static/database-few -index CNN_extracted_image_feature_few.h5
 
 #### 本地图片库内检索
-- python image_query.py -query static/database-few/1-001.jpg -index CNN_extracted_image_feature_few.h5 -result static/database-few
+- python query_local.py -query static/database-few/1-001.jpg -index CNN_extracted_image_feature_few.h5 -result static/database-few
 
 #### web在线图片检索
 - run app.py
