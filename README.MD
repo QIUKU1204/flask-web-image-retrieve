@@ -1,4 +1,4 @@
-# flask-web-demo-cnn-keras-image-retrieve
+# flask-web-demo-keras-cnn-image-retrieve
 
 ## Describe
 
@@ -12,9 +12,25 @@ the webapp has been tested in the following environment
 
 ## Installation
 
-First you create a virtual environment with `virtualenv venv` or `virtualenv -p python3.6 venv` and enter it with `source venv/bin/activate` in order to keep everything contained. 
+First you create a virtual environment with `virtualenv venv` or `virtualenv -p python3.6 venv` 
+
+and enter it with `source venv/bin/activate` in order to keep everything contained. 
 
 Then you run `pip install -r requirements.txt` to install all dependencies
+
+## Operation
+
+#### 安装项目所需第三方库
+- pip install -r requirements.txt
+
+#### 建立图片特征索引集
+- python creat_index.py -database static/database-few -index CNN_extracted_image_feature_few.h5
+
+#### 本地图片库内检索
+- python image_query.py -query static/database-few/1-001.jpg -index CNN_extracted_image_feature_few.h5 -result static/database-few
+
+#### web在线图片检索
+- run app.py
 
 ## Upadte
 
@@ -25,3 +41,5 @@ Then you run `pip install -r requirements.txt` to install all dependencies
 - add some practical function && perfect the index.html and view_image.html.
 
 ## Deploy
+
+#### nginx + uwsgi + supervisor + virtualenv in aliyun
