@@ -2,27 +2,151 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>View Image</title>
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet">
+    <title>检索结果</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,600" />
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://cdn.bootcss.com/flat-ui/2.3.0/css/flat-ui.min.css"/>
+    <script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/flat-ui/2.3.0/js/flat-ui.min.js"></script>
     <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        .center{
+            display: table;
+			margin-left: auto;
+  			margin-right: auto;
+        }
+        .line-center{
+            text-align: center;
+        }
+        img {
+            transform: scale(1);
+        }
         h1, h2, h3, h4, h5, h6 {
             font-weight: 100;
+            align-content: center;
             margin: 0 !important;
         }
     </style>
+    <script>
+        $(function(){
+            $('#myCarousel').carousel({
+                interval: 1500
+            })
+        });
+    </script>
+    <script type="text/javascript">
+    	$(function () {
+  	  		$('[data-toggle="popover"]').popover()
+		})
+	</script>
 </head>
-<body background="../static/blue.jpg" style="display: table; height: 100vh; width: 100vw; margin: 0; padding: 0">
-<div style="display: table-cell; width: 100%; height: 100%; vertical-align: middle; text-align: center;">
-    <!--pass images from view function: images's binary data. -->
-    <!--<img src = "data:image/png;base64, {{ image }}" style="max-width: 100%" />-->
-    <!--pass images from view function: images's path. -->
-    <p><h4>上传图片</h4></p>
-    <img src="{{ images[0] }}" style="max-width: 100%" />
-    <p><h4>相似图片</h4></p>
-    <img src="{{ images[1] }}" style="max-width: 100%" />
-    <img src="{{ images[2] }}" style="max-width: 100%" />
-    <img src="{{ images[3] }}" style="max-width: 100%" />
-    <img src="{{ images[4] }}" style="max-width: 100%" />
-</div>
+<body style="display: table; height: 100vh; width: 100vw; margin: 0; padding: 0">
+    <!-- Static navbar -->
+	<div class="navbar navbar-default navbar-static-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only"></span>
+				</button>
+                <a class="navbar-brand" href="http://127.0.0.1:5001/">图片检索 <small>By QIUKU</small></a>
+			</div>
+
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li role="presentation" class="active"><a href="http://127.0.0.1:5001/">首页</a></li>
+					<li role="presentation"><a href="http://image.baidu.com/?fr=shitu"
+												target="_blank">百度识图</a></li>
+					<li role="presentation"><a href="http://images.google.com"
+												target="_blank">谷歌搜图</a></li>
+					<li role="presentation"><a href="http://127.0.0.1:5001/">友情链接</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right hidden-sm">
+					<li role="presentation"><a href="#"
+						target="_blank">登录</a></li>
+					<li role="presentation"><a href="#"
+						target="_blank">注册</a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div><!-- container -->
+	</div>
+
+    <div class="container">
+        <!-- 巨幕显示 -->
+        <div class="jumbotron center" style="width: 1000px; margin-bottom: 20px; background-image: url('../static/bg.jpg')">
+            <div class="center">
+                <p style="color: black;">
+                    <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+                    您上传的图片</p>
+                <img src="{{images[0]}}" style="max-width: 100%" />
+            </div>
+        </div>
+
+        <div class="row thumbnail" style="margin: 0px">
+
+            <div class="center"><p><h4><span class="label label-info">检索内容</span></h4></p></div>
+
+            <div class="list-group">
+
+                <div class="col-md-12 thumbnail">
+
+                    <div class="carousel slide center" id="myCarousel">
+                        <!-- 轮播（Carousel）指标 -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                            <li data-target="#myCarousel" data-slide-to="3"></li>
+                        </ol>
+                        <!-- 轮播（Carousel）项目 -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="{{images[1]}}" alt="First slide">
+                            </div>
+                            <div class="item">
+                                <img src="{{images[2]}}" alt="Second slide">
+                            </div>
+                            <div class="item">
+                                <img src="{{images[3]}}" alt="Third slide">
+                            </div>
+                            <div class="item">
+                                <img src="{{images[4]}}" alt="Third slide">
+                            </div>
+                        </div>
+                        <!-- 轮播（Carousel）控制 -->
+                        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="center" style="width: auto;height: 20px"></div>
+                <!-- 使用-->
+                <div class="col-md-12 thumbnail">
+                {% for image in images %}
+                <div class="col-md-3">
+                    <a href="#" class="thumbnail" style="width: 250px;">
+                        <img src="{{image}}" alt="...">
+                    </a>
+                </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br/><br/>
+	<!--footer-->
+	<div class="navbar navbar-default navbar-static-bottom ">
+		<br/><p class="line-center"><mark>版权声明区</mark></p>
+	</div>
+
 </body>
 </html>

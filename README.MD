@@ -10,11 +10,11 @@ the webapp has been tested in the following environment
 
 * Python (3.6)
 
-## Installation
+## Virtualenv
 
 First you create a virtual environment with `virtualenv venv` or `virtualenv -p python3.6 venv` 
 
-and enter it with `source venv/bin/activate` in order to keep everything contained. 
+and enter it with `source venv/bin/activate` in order to active this virtual environment. 
 
 Then you run `pip install -r requirements.txt` to install all dependencies
 
@@ -35,6 +35,7 @@ Then you run `pip install -r requirements.txt` to install all dependencies
 ## Upadte
 
 - 2018-4-28：done with the flask web demo in keras&cnn image retrieve.
+- 2018-6-25：update and beautify html files of this flask web demo.
 
 ## Goal
 
