@@ -7,6 +7,7 @@ from numpy import linalg as LA
 from keras.applications.vgg16 import VGG16
 from keras.preprocessing import image
 from keras.applications.vgg16 import preprocess_input
+import keras
 
 
 class VGGNet:
@@ -34,6 +35,7 @@ class VGGNet:
 	'''
 
 	def extract_feature(self, img):  # img or img_path
+
 		# img = image.load_img(img_path, target_size=(self.input_shape[0], self.input_shape[1]))
 		img = img.resize(size=(self.input_shape[0], self.input_shape[1]))
 		img = image.img_to_array(img)

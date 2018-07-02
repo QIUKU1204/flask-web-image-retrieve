@@ -6,6 +6,7 @@ import h5py
 import os
 from extract_cnn_vgg16_keras import VGGNet
 from PIL import Image
+import keras
 
 # to hide tensorflow warnings
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
@@ -19,8 +20,16 @@ def query(image):  # image or image_path
 	img_names_decode = [bytes(img_name).decode('utf-8', 'ignore') for img_name in img_names_set]
 	h5f.close()
 
+	# TODO: 在加载模型之前清除后台session，避免报错 - TypeError: Cannot interpret feed_dict key as Tensor:
+	# Tensor Tensor("Placeholder_8:0", shape=(3, 3, 128, 256), dtype=float32) is not an element of this graph.
+	keras.backend.clear_session()
+
 	# init VGGNet16 model
 	model = VGGNet()
+
+	# TODO: 随便生成一个向量让 model 执行一次 predict 函数
+	# TODO: 避免报错 - ValueError: Tensor Tensor("dense_2/Softmax:0", shape=(?, 8), dtype=float32) is not an element of this graph.
+	model.model.predict(np.zeros((1, 224, 224, 3)))
 
 	# extract query image's feature,then compute similarity score and sort
 	query_img_feat = model.extract_feature(image)

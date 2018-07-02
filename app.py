@@ -31,6 +31,7 @@ def upload_image():
 			# get uploaded image's extension and save
 			img_type = imghdr.what(image)
 			print('extension of image: ', img_type)
+			print('iamge filename: ', image.filename)
 			image.save('upload-images/' + image.filename)
 
 			# query and return a similar images' path list
@@ -56,26 +57,10 @@ def upload_image():
 		# 	return send_file(io.BytesIO(image_fs.read()), mimetype='image/{}'.format(image_type),
 		# 	                 attachment_filename='image.pdf')
 
-		return render_template('index.html')  # 抛出403异常
+		return render_template('index.html')  # 发生403异常时的处理
 
 
-# 自定义异常处理
-
-# @app.errorhandler(500)
-# def error500(e):
-# 	return "您请求的页面后台发生错误！错误信息:" % e
-#
-#
-# @app.errorhandler(404)
-# def error404(e):
-# 	return "您访问的页面飞去了火星！错误信息:" % e
-#
-#
-# @app.errorhandler(403)
-# def error403(e):
-# 	return "您的权限不足！无法获取请求资源！错误信息:" % e
-
-
-# Flask封装了一个简单的开发用WSGI服务器，通过调用run()启动服务器运行web应用
+# Flask封装了一个简单的开发用WSGI服务器，通过调用run()在服务器上运行flask应用
 if __name__ == '__main__':
-	app.run(port=5001)
+	# 当host='0.0.0.0'时，内置WSGI服务器外部可访问
+	app.run(host='127.0.0.1', port=5001)
