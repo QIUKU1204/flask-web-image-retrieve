@@ -45,6 +45,6 @@ Finally run `pip install -r requirements.txt` to install all dependencies librar
 
 ## Deploy
 
-#### [nginx + uwsgi + uwsgi emperor + virtualenv in aliyun](http://47.106.11.169:8080/image-retrieve)
+#### [nginx + uwsgi + uwsgi emperor + virtualenv in aliyun](http://47.106.11.169:80/image-retrieve)
 
 #### nginx + uwsgi + supervisor + virtualenv in aliyun
