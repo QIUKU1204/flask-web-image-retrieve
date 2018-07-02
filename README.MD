@@ -34,8 +34,8 @@ Finally run `pip install -r requirements.txt` to install all dependencies librar
 
 ## Upadte
 
-- 2018-4-28：done with the flask web demo in keras&cnn image retrieve.
-- 2018-6-25：update and beautify html files of this flask web demo.
+- 2018-4-28: Done with the flask web demo in keras&cnn image retrieve.
+- 2018-6-25: Update and beautify html files of this flask web demo.
 - 2018-6-28: Deploy in aliyun server.
 - 2018-7-02: Do more in Deploy.
 
