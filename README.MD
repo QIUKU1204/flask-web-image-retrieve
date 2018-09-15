@@ -1,5 +1,11 @@
 # flask-web-demo-keras-cnn-image-retrieve
 
+## Deploy
+
+#### [nginx + uwsgi + uwsgi emperor + virtualenv in aliyun](http://47.106.11.169:80/image-retrieve)
+
+#### nginx + uwsgi + supervisor + virtualenv in aliyun
+
 ## Describe
 
 A very simple Flask app which accepts a image upload via a form, and then displays that similar images back to the user.
@@ -42,9 +48,3 @@ Finally run `pip install -r requirements.txt` to install all dependencies librar
 ## Goal
 
 - None.
-
-## Deploy
-
-#### [nginx + uwsgi + uwsgi emperor + virtualenv in aliyun](http://47.106.11.169:80/image-retrieve)
-
-#### nginx + uwsgi + supervisor + virtualenv in aliyun
